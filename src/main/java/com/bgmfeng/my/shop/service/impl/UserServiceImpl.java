@@ -12,9 +12,11 @@ import com.bgmfeng.my.shop.service.UserService;
  */
 public class UserServiceImpl implements UserService {
 
+    private UserDao userDao = SpringContext.getBean("userDao");
+
     public User login(String email, String password) {
-        SpringContext springContext = new SpringContext();
-        UserDao userDao = (UserDao) springContext.getBean("userDao");
+//        SpringContext springContext = new SpringContext();
+//        UserDao userDao = (UserDao) springContext.getBean("userDao");
         return userDao.getUser(email, password);
     }
 }
